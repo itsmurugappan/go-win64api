@@ -95,6 +95,7 @@ func ListLoggedInUsers() ([]so.SessionDetails, error) {
 									LogonType:     data.LogonType,
 									DnsDomainName: LsatoString(data.DnsDomainName),
 									LogonTime:     uint64TimestampToTime(data.LogonTime),
+									Upn: strings.ToLower(LsatoString(data.Upn)),
 								}
 								hn, _ := os.Hostname()
 								if strings.ToUpper(ud.Domain) == strings.ToUpper(hn) {
